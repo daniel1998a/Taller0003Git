@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var btnResultado = document.getElementById("resultado");
     var btnLimparTela = document.getElementById("limparTela");
     var btnApagarAnterior = document.getElementById("apagarAnterior");
-
-    listenerBtn.push(document.getElementById("ponto"));
+    var btnconvertir = document.getElementById("convertir")
+   
 
     //teclas dos operadores
     listenerBtn.push(document.getElementById("soma"));
@@ -37,6 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btnResultado.onclick = function () {
         verificarResulatado();
+       
+    }
+
+    btnconvertir.onclick = function () {
+        verificarconvertir();
+       
     }
 
     function verificarResulatado() {
@@ -54,6 +60,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } catch (e) {
             console.error(e);
+        }
+    }
+
+    function verificarconvertir() {
+        var valorCalculado =  tela.value * 9 / 5 + 32;
+        if (valorCalculado || valorCalculado == "0") {
+            tela.value = valorCalculado;
+        } else {
+            throw "erro";
         }
     }
 
@@ -97,10 +112,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 return true;
             case "/":
                 return true;
-
             default:
                 return false;
         }
     }
+
+    
+
 
 });
